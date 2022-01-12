@@ -1,0 +1,5 @@
+client/node_modules
+client/build
+data
+.DS_Store
+*/.DS_Store
