@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { RouteComponentProps } from "@reach/router";
+import { Link, RouteComponentProps } from "@reach/router";
 
 import useDirectors from "../utils/hooks/useDirectors";
 import useMovies from "../utils/hooks/useMovies";
@@ -65,9 +65,11 @@ export default function DirectorDetails(props: RouteComponentProps) {
           <div className="mt-4">Movies by this director:</div>
           <div>
             {director.movies.map((x, i) => (
-              <div className="ml-4 font-bold text-gray-600" key={i}>
-                {x.name} ({x.release_year})
-              </div>
+              <Link key={i} to={`/movies/${x.id}`}>
+                <div className="ml-4 font-bold text-gray-600 hover:underline">
+                  {x.name} ({x.release_year})
+                </div>
+              </Link>
             ))}
           </div>
         </>

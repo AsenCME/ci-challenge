@@ -36,7 +36,7 @@ export default function useDirectors() {
       }).then((x) => x.json());
       cache.setQueryData<Director[]>("directors", (data) => {
         const idx = data?.findIndex((x) => x.id === id);
-        if (!idx || idx === -1 || !data?.length) return data || [];
+        if (idx === undefined || idx === -1 || !data?.length) return data || [];
         data[idx] = res;
         return data;
       });
